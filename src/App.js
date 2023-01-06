@@ -9,6 +9,7 @@ import WorkList from "./pages/WorkList";
 import MouseParticles from 'react-mouse-particles'
 import WorkDetail from './pages/WorkDetail';
 import FilePage from './pages/FilePage';
+import AnnouncePage from './pages/AnnouncePage';
 function App() {
     const [count, setCount] = useState(0)
     const isLogin = localStorage.getItem("isLogin")
@@ -40,6 +41,7 @@ function App() {
                         <Route path="/work/:id" element={<WorkDetail></WorkDetail>} />
                         <Route path="/index" element={<IndexPage></IndexPage>} />
                         <Route path="/disk" element={<FilePage></FilePage>} />
+                        <Route path='/announce' element={<AnnouncePage></AnnouncePage>}></Route>
                     </Routes>
                 </div>
             </div>

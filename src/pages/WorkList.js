@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import WorkCard from "../compoments/WorkCard";
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class WorkList extends Component {
     state = {
         response: [],
         shouldShow: false,
-        jumpTo:0
+        jumpTo: 0
     }
     randomWork = (max, min) => {
         var r = Math.floor(Math.random() * (max - min + 1)) + min
@@ -65,9 +65,9 @@ class WorkList extends Component {
             })
         })
     }
-    handleClick = ()=> {
-        var id = this.randomWork(1000,this.state.response.data[0].workId)
-        this.setState({jumpTo:id})
+    handleClick = () => {
+        var id = this.randomWork(1000, this.state.response.data[0].workId)
+        location.replace(location.href + "/" + id)  //直接用react不知道为啥就跳转不了
     }
     render() {
         return (
@@ -94,10 +94,10 @@ class WorkList extends Component {
                         position: 'relative',
                         marginLeft: '5%'
                     }}
-                    onClick = {this.handleClick}
-                    >随机</Button>
+                        onClick={this.handleClick}
+                    >随机
+                    </Button>
                 </Tooltip>
-                {this.state.jumpTo===0?<></>:<Navigate to={this.state.jumpTo}/>}
             </div>
         );
     }
